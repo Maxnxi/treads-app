@@ -1,5 +1,5 @@
 //
-//  BeginRunVC.swift
+//  LogTableVC.swift
 //  Treads
 //
 //  Created by Maksim Ponomarev on 10.11.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BeginRunVC: UIViewController {
+class LogTableVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +15,6 @@ class BeginRunVC: UIViewController {
     }
     
 
-
+  
 
 }
