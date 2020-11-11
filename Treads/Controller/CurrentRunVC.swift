@@ -6,19 +6,41 @@
 //
 
 import UIKit
+import MapKit
 
 class CurrentRunVC: LocationVC {
 
     @IBOutlet weak var sliderImageView: UIImageView!
     @IBOutlet weak var swipeBGImageView: UIImageView!
    
-    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var pauseBtn: UIButton!
+    
+    @IBOutlet weak var timeLbl: UILabel!//duration lbl
     @IBOutlet weak var paceLbl: UILabel!
     @IBOutlet weak var distanceLbl: UILabel!
     
+    var startLocation:CLLocation!
+    var lastLocation: CLLocation!
+    
+    var runDistance = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-setupView()
+        setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        manager?.delegate = self
+        manager?.distanceFilter = 10
+        startRun()
+    }
+    
+    func startRun(){
+        manager?.startUpdatingLocation()
+    }
+    
+    func stopRun() {
+        manager?.stopUpdatingLocation()
     }
     
     func setupView(){
@@ -27,7 +49,13 @@ setupView()
         sliderImageView.isUserInteractionEnabled = true
         swipeGesture.delegate = self as? UIGestureRecognizerDelegate
     }
-
+    
+    
+    @IBAction func pauseBtnWasPressed(_ sender: Any) {
+        
+        
+    }
+    
     @objc func endRunSwiped(sender: UIPanGestureRecognizer){
         let minAdjust: CGFloat = 80
         let maxAdjust: CGFloat = 130
@@ -56,4 +84,22 @@ setupView()
 
 }
 
+extension CurrentRunVC: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse {
+            checkLocationAuthStatus()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if startLocation == nil {
+            startLocation = locations.first
+        } else if let location = locations.last {
+            runDistance += lastLocation.distance(from: location)
+            distanceLbl.text = "\(runDistance)"
+        }
+        lastLocation = locations.last
+    }
+    
+}
 

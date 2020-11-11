@@ -266,6 +266,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrQ-if-6H2">
                                 <rect key="frame" x="277" y="621" width="75" height="75"/>
                                 <state key="normal" image="pauseButton"/>
+                                <connections>
+                                    <action selector="pauseBtnWasPressed:" destination="emz-tQ-snA" eventType="touchUpInside" id="10D-mb-DYW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END RUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxi-3s-F3E">
                                 <rect key="frame" x="164.66666666666666" y="645.66666666666663" width="85" height="26"/>
@@ -319,6 +322,7 @@
                     <connections>
                         <outlet property="distanceLbl" destination="MeA-bI-VYp" id="UlA-FT-kW1"/>
                         <outlet property="paceLbl" destination="8pg-dV-RyO" id="V7n-Vf-3Bj"/>
+                        <outlet property="pauseBtn" destination="nrQ-if-6H2" id="Csv-e4-TBW"/>
                         <outlet property="sliderImageView" destination="Xo1-zp-hDg" id="oDI-pw-UnN"/>
                         <outlet property="swipeBGImageView" destination="1ds-uk-g07" id="b1g-Sm-xn5"/>
                         <outlet property="timeLbl" destination="sax-Ub-ONu" id="plT-U8-25M"/>

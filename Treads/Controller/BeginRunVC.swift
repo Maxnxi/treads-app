@@ -50,10 +50,7 @@ extension BeginRunVC {
 //    }
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
-        //need to update
-        let status = CLLocationManager.authorizationStatus()
-        if status == .authorizedWhenInUse {
-            //CLAuthorizationStatus.authorizedWhenInUse == true {
+        if manager.authorizationStatus == .authorizedWhenInUse {
             checkLocationAuthStatus()
             mapView.showsUserLocation = true
             mapView.userTrackingMode = .follow
