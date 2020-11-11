@@ -189,6 +189,7 @@
                     <tabBarItem key="tabBarItem" title="Run" image="tabbar-runIconGray" id="HIx-rq-CpF"/>
                     <connections>
                         <outlet property="centerLocationBtn" destination="2Mm-fl-Npj" id="ckD-4z-q4v"/>
+                        <outlet property="mapView" destination="tHh-Eu-skw" id="iIF-le-vu6"/>
                         <outlet property="startRunBtn" destination="Tk5-gU-rYh" id="IAa-Rv-WlK"/>
                     </connections>
                 </viewController>
