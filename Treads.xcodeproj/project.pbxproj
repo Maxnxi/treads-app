@@ -34,6 +34,7 @@
 		B94F3D21255AA705004F591A /* LogTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F3D20255AA705004F591A /* LogTableVC.swift */; };
 		B94F3D26255ABF02004F591A /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F3D25255ABF02004F591A /* LogCell.swift */; };
 		B9D625EC255BF21C0014492E /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D625EB255BF21C0014492E /* LocationVC.swift */; };
+		B9D625F2255C03D40014492E /* CurrentRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D625F1255C03D40014492E /* CurrentRunVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		B94F3D20255AA705004F591A /* LogTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableVC.swift; sourceTree = "<group>"; };
 		B94F3D25255ABF02004F591A /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 		B9D625EB255BF21C0014492E /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		B9D625F1255C03D40014492E /* CurrentRunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRunVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				B9D625EB255BF21C0014492E /* LocationVC.swift */,
 				B94F3D1D255AA4F1004F591A /* BeginRunVC.swift */,
 				B94F3D20255AA705004F591A /* LogTableVC.swift */,
+				B9D625F1255C03D40014492E /* CurrentRunVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				B94F3CDA255A9C1F004F591A /* AppDelegate.swift in Sources */,
 				B94F3D1E255AA4F1004F591A /* BeginRunVC.swift in Sources */,
 				B94F3CDC255A9C1F004F591A /* SceneDelegate.swift in Sources */,
+				B9D625F2255C03D40014492E /* CurrentRunVC.swift in Sources */,
 				B94F3D21255AA705004F591A /* LogTableVC.swift in Sources */,
 				B9D625EC255BF21C0014492E /* LocationVC.swift in Sources */,
 			);

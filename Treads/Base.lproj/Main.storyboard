@@ -197,10 +197,10 @@
             </objects>
             <point key="canvasLocation" x="62.318840579710148" y="-619.56521739130437"/>
         </scene>
-        <!--View Controller-->
+        <!--Current RunVC-->
         <scene sceneID="Dh5-HK-zBK">
             <objects>
-                <viewController id="emz-tQ-snA" sceneMemberID="viewController">
+                <viewController id="emz-tQ-snA" customClass="CurrentRunVC" customModule="Treads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FuP-0U-YBn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,15 +267,15 @@
                                 <rect key="frame" x="277" y="621" width="75" height="75"/>
                                 <state key="normal" image="pauseButton"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunButton" translatesAutoresizingMaskIntoConstraints="NO" id="Xo1-zp-hDg">
-                                <rect key="frame" x="76" y="630" width="57" height="57"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END RUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxi-3s-F3E">
                                 <rect key="frame" x="164.66666666666666" y="645.66666666666663" width="85" height="26"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunButton" translatesAutoresizingMaskIntoConstraints="NO" id="Xo1-zp-hDg">
+                                <rect key="frame" x="76" y="630" width="57" height="57"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IMl-cm-QB2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -316,6 +316,13 @@
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="distanceLbl" destination="MeA-bI-VYp" id="UlA-FT-kW1"/>
+                        <outlet property="paceLbl" destination="8pg-dV-RyO" id="V7n-Vf-3Bj"/>
+                        <outlet property="sliderImageView" destination="Xo1-zp-hDg" id="oDI-pw-UnN"/>
+                        <outlet property="swipeBGImageView" destination="1ds-uk-g07" id="b1g-Sm-xn5"/>
+                        <outlet property="timeLbl" destination="sax-Ub-ONu" id="plT-U8-25M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi3-Cw-5CR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
