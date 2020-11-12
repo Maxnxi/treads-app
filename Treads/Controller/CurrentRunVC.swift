@@ -21,9 +21,10 @@ class CurrentRunVC: LocationVC {
     
     var startLocation:CLLocation!
     var lastLocation: CLLocation!
+    var timer = Timer()
     
     var runDistance = 0.0
-    var timer = Timer()
+    var pace = 0
     var counter = 0
     
     override func viewDidLoad() {
@@ -40,6 +41,8 @@ class CurrentRunVC: LocationVC {
     func startRun(){
         manager?.startUpdatingLocation()
         startTimer()
+        
+        
     }
     
     func stopRun() {
@@ -52,10 +55,23 @@ class CurrentRunVC: LocationVC {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
     }
-    
     @objc func updateCounter() {
         counter += 1
         timeLbl.text = counter.formatTimeDurationToString()
+        //startPaceRun()
+    }
+    
+    func calculatePace(time seconds:Int, miles: Double) -> String {
+        
+        pace = Int(Double(seconds) / miles)
+        
+//        paceLbl.text = "00:00"
+//        if runDistance != 0 && counter != 0 {
+//            var speed =  Int(runDistance) / (counter)
+//            var pace = (60 / speed) * 60
+//            paceLbl.text = pace.formatTimeDurationToString()
+//        }
+        return pace.formatTimeDurationToString()
     }
     
     func setupView(){
@@ -111,11 +127,15 @@ extension CurrentRunVC: CLLocationManagerDelegate {
             startLocation = locations.first
         } else if let location = locations.last {
             runDistance += lastLocation.distance(from: location)
-            //distanceLbl.text = "\(runDistance.metersToMiles(places: 2))"
+            distanceLbl.text = "\(runDistance.metersToMiles(places: 2))"
             
             //Units of measure
-            distanceLbl.text = "\(runDistance.metersToKilometers(places: 3))"
-            print("\(runDistance)")
+           // distanceLbl.text = "\(runDistance.metersToKilometers(places: 3))"
+            //print("\(runDistance)")
+            
+            if counter > 0 && runDistance > 0 {
+                paceLbl.text = calculatePace(time: counter, miles: runDistance.metersToMiles(places: 2))
+            }
         }
         lastLocation = locations.last
     }
