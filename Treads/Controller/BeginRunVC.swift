@@ -19,7 +19,16 @@ class BeginRunVC: LocationVC, CLLocationManagerDelegate {
         super.viewDidLoad()
         checkLocationAuthStatus()
         mapView.delegate = self
+        printAllRuns()
         
+    }
+    
+    func printAllRuns() {
+        if Run.getAllRuns()!.count > 0 {
+            print("Here are my runs:\n \(Run.getAllRuns())")
+        } else {
+            print("There is no run information")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
