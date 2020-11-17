@@ -14,12 +14,19 @@ class BeginRunVC: LocationVC, CLLocationManagerDelegate {
     @IBOutlet weak var centerLocationBtn: UIButton!
     @IBOutlet weak var startRunBtn: UIButton!
     
+    //last run View outlets
+        @IBOutlet weak var lastRunInfoView: UIView!
+        @IBOutlet weak var lastRunPaceLbl: UILabel!
+        @IBOutlet weak var lastRunDistanceLbl: UILabel!
+        @IBOutlet weak var lastRunDurationLbl: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationAuthStatus()
         mapView.delegate = self
         printAllRuns()
+        //lastRunInfoView.isHidden = true
         
     }
     
@@ -35,6 +42,7 @@ class BeginRunVC: LocationVC, CLLocationManagerDelegate {
         manager?.delegate = self
         manager?.startUpdatingLocation()
         //printAllRuns()
+        getLastRun()
         
     }
     
@@ -42,7 +50,25 @@ class BeginRunVC: LocationVC, CLLocationManagerDelegate {
         manager?.stopUpdatingLocation()
     }
     
+    func getLastRun() {
+        guard let lastRun = Run.getAllRuns()?.first else {
+            
+            lastRunInfoView.isHidden = true
+            return
+        }
+        lastRunInfoView.isHidden = false
+        lastRunPaceLbl.text = lastRun.pace.formatTimeDurationToString()
+        lastRunDistanceLbl.text = "\(lastRun.distance.metersToMiles(places: 2)) mi"
+        lastRunDurationLbl.text = lastRun.duration.formatTimeDurationToString()
+        
+    }
+    
    
+    @IBAction func closeLastRunBtnWasPressed(_ sender: Any) {
+        lastRunInfoView.isHidden = true
+    }
+    
+    
     @IBAction func settingsBtnWasPressed(_ sender: Any) {
         let settings = SettingsVC()
         settings.modalPresentationStyle = .fullScreen
