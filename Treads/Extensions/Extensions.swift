@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Double {
     
@@ -48,4 +49,16 @@ extension NSDate {
             let year = calendar.component(.year, from: self as Date)
         return "\(month)/\(day)/\(year)"
     }
+}
+
+extension UIButton {
+    
+    func setSelectedColor() {
+        self.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    }
+    
+    func setDeSelectedColor() {
+        self.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
+    }
+    
 }

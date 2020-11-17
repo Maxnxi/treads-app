@@ -34,6 +34,8 @@ class BeginRunVC: LocationVC, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         manager?.delegate = self
         manager?.startUpdatingLocation()
+        //printAllRuns()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,6 +43,12 @@ class BeginRunVC: LocationVC, CLLocationManagerDelegate {
     }
     
    
+    @IBAction func settingsBtnWasPressed(_ sender: Any) {
+        let settings = SettingsVC()
+        settings.modalPresentationStyle = .fullScreen
+        present(settings, animated: true, completion: nil)
+        
+    }
     
 
     @IBAction func startRunBtnWasPressed(_ sender: Any) {

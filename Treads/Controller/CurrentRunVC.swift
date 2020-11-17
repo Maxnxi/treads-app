@@ -51,6 +51,7 @@ class CurrentRunVC: LocationVC {
         //let run = Run(pace: pace, distance: runDistance, duration: counter)
         Run.addRunToRealm(pace: pace, distance: runDistance, duration: counter)
         //run.addRunToRealm()
+        
     }
     
     func pauseRun() {
