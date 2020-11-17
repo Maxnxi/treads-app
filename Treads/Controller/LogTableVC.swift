@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 
+
 class LogTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
@@ -45,32 +46,28 @@ class LogTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
   
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, success) in
+    
+    @IBAction func clearLogBtnWasPressed(_ sender: Any) {
+        
+        if Run.getAllRuns()!.count > 0 {
+            Run.clearLogFromRealm()
             
-                self.removeGoal(atIndexPath: indexPath)
-                self.fetchCoreeDataObjects()
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                print("Successfully Deleted goal")
-            
-          })
-          deleteAction.backgroundColor = .red
-        let addProgressAction = UIContextualAction(style: .normal, title: "Add +1") { (action, view, success) in
-            self.setProgressForGoal(atIndexPath: indexPath)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-            print("\n Successfully add progress to goal: \(String(describing: self.goals[indexPath.row].goalDesription))")
-            
-            let alert  = UIAlertController(title: "Done! ", message: "Progress added" ,preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK ", style: .default, handler: nil)
-                    alert.addAction(okAction)
-                    alert.popoverPresentationController?.sourceView = self.view //
-                    self.present(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Info", message: "Run records deleted.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            alert.popoverPresentationController?.sourceView = self.view
+            self.present(alert, animated: true, completion: nil)
+            logTbaleView.reloadData()
+        } else {
+            let alert = UIAlertController(title: "Info", message: "No Run records in your Log.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            alert.popoverPresentationController?.sourceView = self.view
+            self.present(alert, animated: true, completion: nil)
         }
-        deleteAction.image = UIImage(named: "Trash")
-        deleteAction.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-        addProgressAction.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-          return UISwipeActionsConfiguration(actions: [deleteAction, addProgressAction])
+        
     }
+    
 }
 
 

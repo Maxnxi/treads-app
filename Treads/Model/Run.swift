@@ -63,14 +63,19 @@ class Run: Object {
 
     }
     
-    static func removeRunLogFromRealm(atIndexPath indexPath: IndexPath) {
-        REALM_QUEUE.sync {
-            do {
-                let realm = try Realm()
-                try realm.delete(<#T##object: ObjectBase##ObjectBase#>)
-            } catch {
-                debugPrint("Error \(error.localizedDescription)")
+    static func clearLogFromRealm() {
+       
+        
+        do {
+            let realm = try Realm()
+            
+            let objects = realm.objects(self)
+            try! realm.write {
+                realm.delete(objects)
             }
+            
+        } catch {
+            debugPrint("Error clearing Realm \(error.localizedDescription)")
         }
     }
     

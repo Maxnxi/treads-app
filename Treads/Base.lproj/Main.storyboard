@@ -111,6 +111,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwI-pn-mMw">
+                                <rect key="frame" x="370.66666666666669" y="14.000000000000002" width="23.333333333333314" height="25.666666666666671"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="trash.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearLogBtnWasPressed:" destination="ExR-QY-Svp" eventType="touchUpInside" id="mvF-Hz-6fD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3MB-vB-h8q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -120,8 +131,10 @@
                             <constraint firstItem="fSO-7U-Ceb" firstAttribute="trailing" secondItem="3MB-vB-h8q" secondAttribute="trailing" id="EoR-gJ-Qib"/>
                             <constraint firstItem="960-0g-Bts" firstAttribute="leading" secondItem="3MB-vB-h8q" secondAttribute="leading" id="Hhg-P8-w42"/>
                             <constraint firstItem="960-0g-Bts" firstAttribute="bottom" secondItem="3MB-vB-h8q" secondAttribute="bottom" id="Mnc-mo-fev"/>
+                            <constraint firstItem="3MB-vB-h8q" firstAttribute="trailing" secondItem="jwI-pn-mMw" secondAttribute="trailing" constant="20" id="W3c-gn-KEV"/>
                             <constraint firstItem="fSO-7U-Ceb" firstAttribute="leading" secondItem="3MB-vB-h8q" secondAttribute="leading" id="WGW-0g-hBP"/>
                             <constraint firstItem="960-0g-Bts" firstAttribute="top" secondItem="NFl-ET-pKX" secondAttribute="bottom" constant="20" id="ed4-9g-cJb"/>
+                            <constraint firstItem="jwI-pn-mMw" firstAttribute="top" secondItem="3MB-vB-h8q" secondAttribute="top" constant="14" id="ljy-Sj-J5R"/>
                             <constraint firstItem="NFl-ET-pKX" firstAttribute="centerX" secondItem="JtI-Cn-e0f" secondAttribute="centerX" id="nRX-RF-Mpy"/>
                             <constraint firstAttribute="bottom" secondItem="fSO-7U-Ceb" secondAttribute="bottom" id="ov5-yN-ka2"/>
                             <constraint firstItem="fSO-7U-Ceb" firstAttribute="top" secondItem="3MB-vB-h8q" secondAttribute="top" id="xFa-Kb-x6T"/>
@@ -397,6 +410,7 @@
         <image name="startRunningButton" width="71" height="71"/>
         <image name="tabbar-myLogIconGray" width="25" height="25"/>
         <image name="tabbar-runIconGray" width="27" height="28"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
